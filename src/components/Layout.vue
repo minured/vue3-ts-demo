@@ -10,8 +10,13 @@
 </template>
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import Nav from "@/components/Nav.vue";
 
-@Options({})
+@Options({
+  components: {
+    Nav,
+  },
+})
 export default class Layout extends Vue {}
 </script>
 <style lang="scss" scoped>
@@ -26,7 +31,6 @@ export default class Layout extends Vue {}
     overflow: auto;
   }
   .nav-wrapper {
-    background: orange;
   }
 }
 </style>

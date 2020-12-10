@@ -5,6 +5,9 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Nav from "@/components/Nav.vue";
+import "./assets/icons/iconfont.js";
+import "./assets/styles/reset.scss";
+import "./assets/styles/global.scss";
 
 @Options({
   components: {
