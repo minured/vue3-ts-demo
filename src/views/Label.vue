@@ -1,18 +1,21 @@
 <template>
   <div>
-    Label
-  </div>
-  <div>
-    <Nav />
+    <Layout>
+      label
+    </Layout>
   </div>
 </template>
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import Layout from "@/components/Layout.vue";
 @Options({
   props: {},
   components: {
+    Layout,
   },
 })
-export default class Label extends Vue {}
+export default class Label extends Vue {
+    
+}
 </script>
-<style lang="scss"></style>
+<style lang="scss" scoped></style>

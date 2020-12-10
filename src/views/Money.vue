@@ -1,74 +1,20 @@
 <template>
   <div class="money">
-    <div class="money-content">
-      Money
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>456</div>
-      <div>last</div>
-    </div>
-    <div class="nav-wrapper">
-      <Nav />
-    </div>
+    <Layout>
+      money
+    </Layout>
   </div>
 </template>
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import Layout from "../components/Layout.vue";
 
 @Options({
   props: {},
-  components: {},
+  components: {
+    Layout,
+  },
 })
 export default class Money extends Vue {}
 </script>
-<style lang="scss" scoped>
-.money {
-  height: 100vh;
-  background: gray;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  .money-content {
-      flex: 1;
-      overflow: auto;
-  }
-  .nav-wrapper {
-
-  }
-}
-</style>
+<style lang="scss" scoped></style>
