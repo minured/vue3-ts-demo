@@ -5,7 +5,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "money",
-    redirect: "/money"
+    redirect: "/money",
   },
   {
     path: "/money",
@@ -23,8 +23,8 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("../views/Statistics.vue"),
   },
   {
-    path: '/.',
-    name: "404",
+    path: "/:catchAll(.*)",
+    name: "NotFound",
     component: () => import("../views/404.vue"),
   },
 ];
