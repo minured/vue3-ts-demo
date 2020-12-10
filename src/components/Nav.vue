@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <router-link to="/money">money</router-link> |
+  <div class="nav-wrapper">
     <router-link to="/label">label</router-link> |
+    <router-link to="/money">money</router-link> |
     <router-link to="/statistics">statistics</router-link>
   </div>
 </template>
@@ -12,4 +12,9 @@ import { Options, Vue } from "vue-class-component";
 })
 export default class Nav extends Vue {}
 </script>
-<style lang=""></style>
+<style lang="scss">
+.nav-wrapper {
+
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+</style>

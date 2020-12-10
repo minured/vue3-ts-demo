@@ -1,7 +1,4 @@
 <template>
-  <div id="nav">
-    <Nav/>
-  </div>
   <router-view />
 </template>
 
@@ -9,12 +6,10 @@
 import { Options, Vue } from "vue-class-component";
 import Nav from "@/components/Nav.vue";
 
-
-
 @Options({
   components: {
-    Nav
-  }
+    Nav,
+  },
 })
 export default class App extends Vue {}
 </script>
