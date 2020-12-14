@@ -75,7 +75,7 @@ export default class Label extends Vue {
     this.labelValue = e.target.innerText;
 
     console.log(this.router);
-    
+
     this.router.push(`/edit/${e.target.innerText}`);
   }
   saveLabel() {
