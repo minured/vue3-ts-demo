@@ -124,7 +124,6 @@ export default class Money extends Vue {
 </script>
 <style lang="scss" scoped>
 :deep .content {
-  background: orange;
   .in-out {
   }
   .amount {

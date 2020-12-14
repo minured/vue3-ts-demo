@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import Money from "@/views/Money.vue";
+import Edit from "@/views/Edit"
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -21,6 +22,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/statistics",
     name: "Statistics",
     component: () => import("../views/Statistics.vue"),
+  },
+  {
+    path: "/edit/:labelName",
+    name: "edit",
+    component: () => import("../views/Edit"),
   },
   {
     path: "/:catchAll(.*)",

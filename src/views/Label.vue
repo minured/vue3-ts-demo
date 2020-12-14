@@ -28,6 +28,7 @@ import { Options, Vue } from "vue-class-component";
 import { List, Cell } from "vant";
 import AddBtn from "@/components/AddBtn.vue";
 import { Popup, Field, Button, Toast } from "vant";
+import { useRouter } from "vue-router";
 
 @Options({
   props: {},
@@ -41,10 +42,11 @@ import { Popup, Field, Button, Toast } from "vant";
   },
 })
 export default class Label extends Vue {
+  router = useRouter();
   labelList: string[] = ["A", "B", "C"];
   labelValue = "";
   editPadVisible = false;
-  operationType = ""
+  operationType = "";
   initLabel() {
     const localLabel = JSON.parse(localStorage.getItem("label") as "") || [];
     if (localLabel.length === 0) {
@@ -70,18 +72,19 @@ export default class Label extends Vue {
     this.labelList = localLabel;
   }
   onLabelClick(e: any) {
-    console.log(e.target.innerText);
-    this.editPadVisible = true;
     this.labelValue = e.target.innerText;
+
+    console.log(this.router);
+    
+    this.router.push(`/edit/${e.target.innerText}`);
   }
   saveLabel() {
     localStorage.setItem("label", JSON.stringify(this.labelList));
   }
   onAddClick() {
     console.log("addClick");
-    this.operationType = "ADD"
+    this.operationType = "ADD";
     this.editPadVisible = true;
-    
   }
   beforeMount() {
     this.initLabel();
@@ -90,8 +93,8 @@ export default class Label extends Vue {
     if (!this.checkInputLabel(this.labelValue)) return;
     for (let i = 0; i < this.labelList.length; i++) {
       if (this.labelValue === this.labelList[i]) {
-        this.editPadVisible = false
-        return
+        this.editPadVisible = false;
+        return;
       }
     }
     this.labelList.push(this.labelValue);
