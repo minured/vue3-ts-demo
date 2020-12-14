@@ -5,15 +5,19 @@
       {{ JSON.stringify(recordList) }}
       <h1>label</h1>
       {{ JSON.stringify(labelList) }}
+      <Edit />
     </Layout>
   </div>
 </template> 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import Edit from "@/views/Edit.tsx"
 
 @Options({
   props: {},
-  components: {},
+  components: {
+    Edit
+  },
 })
 export default class Statistics extends Vue {
   recordList = [];

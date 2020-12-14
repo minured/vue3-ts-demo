@@ -44,6 +44,7 @@ export default class Label extends Vue {
   labelList: string[] = ["A", "B", "C"];
   labelValue = "";
   editPadVisible = false;
+  operationType = ""
   initLabel() {
     const localLabel = JSON.parse(localStorage.getItem("label") as "") || [];
     if (localLabel.length === 0) {
@@ -63,7 +64,6 @@ export default class Label extends Vue {
       ];
       this.labelList = defaultLabel;
       console.log(this.labelList);
-
       return;
     }
     console.log("get label from local");
@@ -79,7 +79,9 @@ export default class Label extends Vue {
   }
   onAddClick() {
     console.log("addClick");
+    this.operationType = "ADD"
     this.editPadVisible = true;
+    
   }
   beforeMount() {
     this.initLabel();
@@ -96,7 +98,7 @@ export default class Label extends Vue {
     this.saveLabel();
     this.editPadVisible = false;
   }
-  checkInputLabel(v: String) {
+  checkInputLabel(v: string) {
     if (v === "") {
       Toast.fail("不能为空");
       return false;
