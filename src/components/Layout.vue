@@ -19,7 +19,7 @@ import Nav from "@/components/Nav.vue";
 })
 export default class Layout extends Vue {}
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .layout {
   height: 100vh;
   background: gray;
@@ -27,8 +27,10 @@ export default class Layout extends Vue {}
   display: flex;
   flex-direction: column;
   .content {
-    flex: 1;
     overflow: auto;
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
   }
   .nav-wrapper {
   }

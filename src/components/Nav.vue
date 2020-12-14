@@ -1,53 +1,60 @@
 <template>
   <div class="nav">
-    <router-link
-      to="/label"
-      class="nav-item"
-      @click="onNavItemClick"
-      :class="{ active: navSelected }"
-    >
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-label-selected"></use>
-      </svg>
-      <span>
-        label
-      </span>
-    </router-link>
-
-    <router-link to="/money" class="nav-item">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-label-selected"></use>
-      </svg>
-      <span>
-        money
-      </span>
-    </router-link>
-    <router-link to="/statistics" class="nav-item">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-label-selected"></use>
-      </svg>
-      <span>
-        statistics
-      </span>
-    </router-link>
+    <Tabbar v-model="tabSelected" @change="onTabChange">
+      <TabbarItem icon="label">标签</TabbarItem>
+      <TabbarItem icon="add">记账</TabbarItem>
+      <TabbarItem icon="balance-list">统计</TabbarItem>
+    </Tabbar>
   </div>
 </template>
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import { Tabbar, TabbarItem } from "vant";
+import { Tab, Tabs } from "vant";
+import { useRouter, useRoute } from "vue-router";
+
 @Options({
   props: {},
-  data() {
-    return {
-      navSelected: true,
-    };
-  },
-  methods: {
-    onNavItemClick() {
-      console.log("click");
-    },
+  components: {
+    Tabbar,
+    TabbarItem,
+    Tab,
+    Tabs,
   },
 })
-export default class Nav extends Vue {}
+export default class Nav extends Vue {
+  tabSelected = 0;
+  router = useRouter();
+  route = useRoute();
+  // 路径判断优化 TODO
+  beforeMount() {
+    const { path } = this.route;
+    switch (path) {
+      case "/label":
+        this.tabSelected = 0;
+        break;
+      case "/money":
+        this.tabSelected = 1;
+        break;
+      case "/statistics":
+        this.tabSelected = 2;
+        break;
+    }
+  }
+  onTabChange() {
+    switch (this.tabSelected) {
+      case 0:
+        this.router.push("/label");
+        break;
+      case 1:
+        this.router.push("/money");
+        break;
+      case 2:
+        this.router.push("/statistics");
+        break;
+    }
+  }
+}
 </script>
 <style lang="scss" scoped>
 .nav {
